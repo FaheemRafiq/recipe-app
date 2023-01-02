@@ -1,0 +1,85 @@
+<script setup>
+import { reactive } from "vue";
+import ButtonComponent from "./ButtonComponent.vue";
+import InputEmail from "./Small/InputEmail.vue";
+import InputPassword from "./Small/InputPassword.vue";
+import InputUsername from "./Small/InputUsername.vue";
+
+const user = reactive({
+  username: "",
+  email: "",
+  password: "",
+  confirm_password: "",
+});
+</script>
+
+<template>
+  <div class="pl-10 pr-20 w-[500px]">
+    <!-- Heading -->
+    <h1
+      class="py-5 text-4xl font-LogoFont font-bold underline underline-offset-8 decoration-yellow-500"
+    >
+      <span class="text-5xl text-red-600">R</span>ecipe<span
+        class="text-yellow-500"
+        >.</span
+      >
+    </h1>
+
+    <!-- Username -->
+
+    <h1 class="text-2xl font-Prosto font-bold py-2">Create Account</h1>
+    <div class="space-y-3">
+      <!-- Username -->
+      <InputUsername v-model:username="user.username" />
+      <!-- Email -->
+      <InputEmail v-model:email="user.email" />
+      <!-- Password -->
+      <InputPassword v-model:password="user.password" title="Password" />
+      <!-- Confirm_password -->
+      <InputPassword
+        v-model:password="user.confirm_password"
+        title="Confirm Password"
+      />
+
+      <div class="flex items-center text-white">
+        <input
+          id="yellow-checkbox"
+          type="checkbox"
+          class="w-4 h-4 accent-yellow-400"
+          required
+        />
+        <label for="link-checkbox" class="ml-2 text-sm font-medium"
+          >I agree with the
+          <a href="#" class="text-yellow-400 hover:underline"
+            >terms and conditions</a
+          >.</label
+        >
+      </div>
+
+      <!-- Button -->
+      <div class="pt-2">
+        <ButtonComponent class="bg-red-600">Create account</ButtonComponent>
+      </div>
+      <div>
+        <p class="">
+          Already have an account.<RouterLink
+            to="/signin"
+            class="text-yellow-400 hover:underline cursor-pointer"
+          >
+            Sign In</RouterLink
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: ghostwhite;
+}
+</style>
