@@ -3,7 +3,12 @@ import { reactive, ref } from "vue";
 import ButtonComponent from "./ButtonComponent.vue";
 import InputEmail from "./Small/InputEmail.vue";
 import InputPassword from "./Small/InputPassword.vue";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { useRouter } from "vue-router";
 
 const user = reactive({
@@ -37,6 +42,16 @@ const signin = () => {
           break;
       }
     });
+};
+
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(getAuth(), provider)
+    .then((result) => {
+      console.log(result.user);
+      router.push("/recipes");
+    })
+    .catch((error) => console.log(error));
 };
 </script>
 
@@ -82,7 +97,10 @@ const signin = () => {
       >______________________
     </div>
     <div>
-      <ButtonComponent class="w-full border-2 border-yellow-400 mt-4">
+      <ButtonComponent
+        @click="signInWithGoogle"
+        class="w-full border-2 border-yellow-400 mt-4"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 48 48"

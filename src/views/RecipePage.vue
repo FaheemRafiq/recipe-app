@@ -1,6 +1,9 @@
 <script setup>
+import HeaderComponentVue from "../components/HeaderComponent.vue";
 </script>
 
 <template>
-  <h1 class="text-white">Recipe</h1>
+  <div>
+    <HeaderComponentVue />
+  </div>
 </template>
