@@ -3,10 +3,10 @@ import ButtonComponentVue from "./components/ButtonComponent.vue";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
-const route = useRoute();
+const router = useRoute();
 
 const hideHeader = computed(() => {
-  return route.path === "/signup" || route.path === "/signin";
+  return router.path === '/';
 });
 </script>
 
@@ -14,7 +14,7 @@ const hideHeader = computed(() => {
   <div>
     <!-- HEADING SECTION -->
     <header
-      v-show="!hideHeader"
+      v-show="hideHeader"
       class="backdrop-blur-sm text-white flex items-center shadow-2xl px-2"
     >
       <!-- Heading -->

@@ -4,7 +4,7 @@ import SignIpComponent from "../components/SignInComponent.vue";
 import ImageSliderVue from "../components/ImageSlider.vue";
 import { useRoute } from "vue-router";
 
-const route = useRoute();
+const router = useRoute();
 </script>
 
 <template>
@@ -16,8 +16,8 @@ const route = useRoute();
     </section>
     <!-- Register -->
     <section class="backdrop-blur-sm">
-      <SignUpComponent v-show="route.path === '/signup'" />
-      <SignIpComponent v-show="route.path === '/signin'" />
+      <SignUpComponent v-show="router.path === '/signup'" />
+      <SignIpComponent v-show="router.path === '/signin'" />
     </section>
   </div>
 </template>

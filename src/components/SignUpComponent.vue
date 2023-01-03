@@ -4,13 +4,31 @@ import ButtonComponent from "./ButtonComponent.vue";
 import InputEmail from "./Small/InputEmail.vue";
 import InputPassword from "./Small/InputPassword.vue";
 import InputUsername from "./Small/InputUsername.vue";
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "vue-router";
 const user = reactive({
   username: "",
   email: "",
   password: "",
   confirm_password: "",
 });
+const router = useRouter();
+
+// Sign Up using Email and Password
+const register = () => {
+  const auth = getAuth();
+  createUserWithEmailAndPassword(auth, user.email, user.password)
+    .then((data) => {
+      console.log("Successfully Registered!");
+      auth.currentUser.displayName = user.username;
+      console.log(auth.currentUser, data);
+      router.push("/recipes");
+    })
+    .catch((error) => {
+      console.log(error.code);
+      alert(error.message);
+    });
+};
 </script>
 
 <template>
@@ -58,7 +76,9 @@ const user = reactive({
 
       <!-- Button -->
       <div class="pt-2">
-        <ButtonComponent class="bg-red-600">Create account</ButtonComponent>
+        <ButtonComponent @click="register" class="bg-red-600"
+          >Create account</ButtonComponent
+        >
       </div>
       <div>
         <p class="">

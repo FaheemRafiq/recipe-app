@@ -3,11 +3,29 @@ import { reactive } from "vue";
 import ButtonComponent from "./ButtonComponent.vue";
 import InputEmail from "./Small/InputEmail.vue";
 import InputPassword from "./Small/InputPassword.vue";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "vue-router";
 
 const user = reactive({
   email: "",
   password: "",
 });
+const router = useRouter();
+
+// Sign Up using Email and Password
+const signin = () => {
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, user.email, user.password)
+    .then((data) => {
+      console.log("Successfully Signed In!");
+      console.log(data);
+      router.push('/recipes')
+    })
+    .catch((error) => {
+      console.log(error.code);
+      alert(error.message);
+    });
+};
 </script>
 
 <template>
@@ -41,7 +59,7 @@ const user = reactive({
       </div>
       <!-- Button -->
       <div class="pt-2 flex items-center">
-        <ButtonComponent class="bg-red-600">Sign In</ButtonComponent>
+        <ButtonComponent @click="signin" class="bg-red-600">Sign In</ButtonComponent>
       </div>
     </div>
     <div class="text-gray-400 my-4">
