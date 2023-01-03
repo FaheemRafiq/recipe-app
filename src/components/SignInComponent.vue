@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import ButtonComponent from "./ButtonComponent.vue";
 import InputEmail from "./Small/InputEmail.vue";
 import InputPassword from "./Small/InputPassword.vue";
@@ -11,19 +11,31 @@ const user = reactive({
   password: "",
 });
 const router = useRouter();
+const errMsg = ref("");
 
 // Sign Up using Email and Password
 const signin = () => {
   const auth = getAuth();
   signInWithEmailAndPassword(auth, user.email, user.password)
     .then((data) => {
-      console.log("Successfully Signed In!");
-      console.log(data);
-      router.push('/recipes')
+      router.push("/recipes");
     })
     .catch((error) => {
       console.log(error.code);
-      alert(error.message);
+      switch (error.code) {
+        case "auth/invalid-email":
+          errMsg.value = "Invalid Email.";
+          break;
+        case "auth/user-not-found":
+          errMsg.value = "No account with the email was found!";
+          break;
+        case "auth/wrong-password":
+          errMsg.value = "Incorrect Password.";
+          break;
+        default:
+          errMsg.value = "Email and Password was Incorrect.";
+          break;
+      }
     });
 };
 </script>
@@ -59,8 +71,11 @@ const signin = () => {
       </div>
       <!-- Button -->
       <div class="pt-2 flex items-center">
-        <ButtonComponent @click="signin" class="bg-red-600">Sign In</ButtonComponent>
+        <ButtonComponent @click="signin" class="bg-red-600"
+          >Sign In</ButtonComponent
+        >
       </div>
+      <div v-if="errMsg">{{ errMsg }}</div>
     </div>
     <div class="text-gray-400 my-4">
       ______________________<span class="relative top-2"> OR </span
