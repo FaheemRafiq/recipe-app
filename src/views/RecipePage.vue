@@ -1,9 +1,9 @@
 <script setup>
-import HeaderComponentVue from "../components/HeaderComponent.vue";
+import RecipePageHeader from "../components/RecipePageHeader.vue";
 </script>
 
 <template>
   <div>
-    <HeaderComponentVue />
+    <RecipePageHeader />
   </div>
 </template>

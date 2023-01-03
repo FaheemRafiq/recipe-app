@@ -6,6 +6,7 @@ import InputPassword from "./Small/InputPassword.vue";
 import InputUsername from "./Small/InputUsername.vue";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "vue-router";
+import LogoHeading from "./Small/LogoHeading.vue";
 const user = reactive({
   username: "",
   email: "",
@@ -33,18 +34,10 @@ const register = () => {
 
 <template>
   <div class="pl-10 pr-20 w-[500px]">
-    <!-- Heading -->
-    <h1
-      class="py-5 text-4xl font-LogoFont font-bold underline underline-offset-8 decoration-yellow-500"
-    >
-      <span class="text-5xl text-red-600">R</span>ecipe<span
-        class="text-yellow-500"
-        >.</span
-      >
-    </h1>
+    <!-- Logo name -->
+    <LogoHeading />
 
-    <!-- Username -->
-
+    <!-- Sign Up Section -->
     <h1 class="text-2xl font-Prosto font-bold py-2">Create Account</h1>
     <div class="space-y-3">
       <!-- Username -->

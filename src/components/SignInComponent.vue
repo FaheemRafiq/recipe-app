@@ -10,6 +10,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useRouter } from "vue-router";
+import LogoHeading from "./Small/LogoHeading.vue";
 
 const user = reactive({
   email: "",
@@ -57,15 +58,8 @@ const signInWithGoogle = () => {
 
 <template>
   <div class="pl-10 pr-20 w-[500px]">
-    <!-- Heading -->
-    <h1
-      class="py-5 text-4xl font-LogoFont font-bold underline underline-offset-8 decoration-yellow-500"
-    >
-      <span class="text-5xl text-red-600">R</span>ecipe<span
-        class="text-yellow-500"
-        >.</span
-      >
-    </h1>
+    <!-- Logo Name -->
+    <LogoHeading />
     <h1 class="text-2xl font-Prosto font-bold py-2">Sign In</h1>
     <div class="space-y-2">
       <!-- Email -->
@@ -90,7 +84,7 @@ const signInWithGoogle = () => {
           >Sign In</ButtonComponent
         >
       </div>
-      <div v-if="errMsg">{{ errMsg }}</div>
+      <div v-if="errMsg" class="text-sm text-yellow-400">{{ errMsg }}</div>
     </div>
     <div class="text-gray-400 my-4">
       ______________________<span class="relative top-2"> OR </span

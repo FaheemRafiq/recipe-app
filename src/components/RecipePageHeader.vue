@@ -1,10 +1,14 @@
 <script setup>
+// Importing
 import { ref, onMounted } from "vue";
 import ButtonComponentVue from "./ButtonComponent.vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import LogoHeading from "./Small/LogoHeading.vue";
+
+// Applying
 const isLoggedIn = ref(false);
+
 let auth;
 onMounted(() => {
   auth = getAuth();
@@ -17,12 +21,14 @@ onMounted(() => {
   });
 });
 
-const router = useRoute();
+const router = useRouter();
 
 const handleSignOut = () => {
-  signOut(auth).then(() => {
-    router.push("/");
-  });
+  signOut(auth)
+    .then(() => {
+      router.push("/");
+    })
+    .catch((error) => console.log(error));
 };
 </script>
 
@@ -33,16 +39,6 @@ const handleSignOut = () => {
     <LogoHeading />
     <!-- Button -->
     <div class="ml-auto w-1/2 flex justify-end items-center space-x-4 mr-2">
-      <RouterLink v-if="!isLoggedIn" to="/signup">
-        <ButtonComponentVue class="bg-red-600">
-          Sign Up For Free
-        </ButtonComponentVue>
-      </RouterLink>
-      <RouterLink v-if="!isLoggedIn" to="/signin">
-        <ButtonComponentVue class="bg-transparent border-yellow-600 border-2"
-          >Sign In</ButtonComponentVue
-        >
-      </RouterLink>
       <ButtonComponentVue
         @click="handleSignOut"
         v-if="isLoggedIn"
