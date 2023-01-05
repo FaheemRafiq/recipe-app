@@ -20,9 +20,17 @@ const heroHeading = "Find delicious recipes and cooking inspiration.";
       review dishes you've tried, and even submit your own recipes to share with
       the community.
     </p>
-
-    <ButtonComponentVue class="self-start mt-5 bg-red-600"
-      >Browse Recipes Now</ButtonComponentVue
-    >
+    <div class="self-start mt-5 space-x-3">
+      <RouterLink to="/signup">
+        <ButtonComponentVue class="bg-red-600">
+          Sign Up For Free
+        </ButtonComponentVue>
+      </RouterLink>
+      <RouterLink to="/recipes">
+        <ButtonComponentVue class="border-2 border-yellow-400"
+          >Browse Recipes Now</ButtonComponentVue
+        >
+      </RouterLink>
+    </div>
   </section>
 </template>

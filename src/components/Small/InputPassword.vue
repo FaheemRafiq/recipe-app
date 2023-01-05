@@ -1,6 +1,13 @@
 <script setup>
 import { ref } from "vue";
-defineProps(["password", "title"]);
+defineProps({
+  password: String,
+  title: String,
+  validPassword: {
+    value: Object,
+    default: {},
+  },
+});
 defineEmits(["update:password"]);
 const showPassword = ref(false);
 const togglePassword = () => {
@@ -12,10 +19,16 @@ const togglePassword = () => {
   <div>
     <label for="password" class="text-lg">{{ title }}</label>
     <span
+      :class="
+        validPassword.$error
+          ? 'border-2 border-red-600 focus-within:border-red-600'
+          : ''
+      "
       class="border-2 p-2 text-gray-300 rounded-lg flex items-center focus-within:border-yellow-600 py-1"
     >
       <input
         v-if="showPassword"
+        autocomplete="off"
         type="text"
         class="w-full text-lg bg-transparent outline-none"
         name="password"
@@ -25,6 +38,7 @@ const togglePassword = () => {
       />
       <input
         v-else
+        autocomplete="off"
         type="password"
         class="w-full text-lg bg-transparent outline-none"
         name="password"
@@ -72,6 +86,11 @@ const togglePassword = () => {
         </svg>
       </i>
     </span>
+    <span
+      v-if="validPassword.$error"
+      class="text-sm absolute text-yellow-400"
+      >{{ validPassword.$errors[0].$message }}</span
+    >
   </div>
 </template>
 
