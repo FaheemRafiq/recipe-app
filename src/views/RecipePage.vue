@@ -1,13 +1,15 @@
 <script setup>
-import CardsSwiper from "../components/CardsSwiper.vue";
-import RecipePageHeader from "../components/RecipePageHeader.vue";
+import RecipePageNavigationBar from "../components/RecipePageNavigationBar.vue";
+import OverviewPage from "./RecipeViews/OverviewPage.vue";
 </script>
 
 <template>
-  <div>
-    <RecipePageHeader />
-    <div class="flex justify-center items-center h-[600px]">
-      <CardsSwiper />
+  <div class="min-h-screen overflow-hidden bg-gray-200">
+    <div class="fixed">
+      <RecipePageNavigationBar />
+    </div>
+    <div class="ml-[320px] mr-4 mt-2">
+      <OverviewPage />
     </div>
   </div>
 </template>

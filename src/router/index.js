@@ -20,7 +20,7 @@ const router = createRouter({
       component: () => import("../views/SignUp.vue"),
     },
     {
-      path: "/recipes",
+      path: "/recipes/overview",
       name: "Recipes",
       component: () => import("../views/RecipePage.vue"),
       meta: {

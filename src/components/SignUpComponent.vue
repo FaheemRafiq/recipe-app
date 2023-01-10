@@ -47,7 +47,7 @@ const register = () => {
         console.log("Successfully Registered!");
         auth.currentUser.displayName = user.username;
         console.log(auth.currentUser);
-        router.push("/recipes");
+        router.push("/recipes/overview");
       })
       .catch((error) => {
         spinner.value = false;

@@ -11,9 +11,7 @@ import LogoHeading from "./Small/LogoHeading.vue";
     <!-- Button -->
     <div class="ml-auto mr-2">
       <RouterLink to="/signin">
-        <ButtonComponentVue class="bg-transparent border-yellow-600 border-2"
-          >Sign In</ButtonComponentVue
-        >
+        <ButtonComponentVue class="bg-red-600">Sign In</ButtonComponentVue>
       </RouterLink>
     </div>
   </header>

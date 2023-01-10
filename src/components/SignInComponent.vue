@@ -52,7 +52,7 @@ const signInWithGoogle = () => {
   signInWithPopup(getAuth(), provider)
     .then((result) => {
       console.log(result.user);
-      router.push("/recipes");
+      router.push("/recipes/overview");
     })
     .catch((error) => console.log(error));
 };

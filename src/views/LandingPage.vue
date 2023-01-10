@@ -9,3 +9,4 @@ import HeaderComponentVue from "../components/HeaderComponent.vue";
     <HeroSection />
   </div>
 </template>
+
