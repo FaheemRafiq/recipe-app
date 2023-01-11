@@ -40,7 +40,7 @@ const handleSignOut = async (val) => {
 <template>
   <!-- HEADING SECTION -->
   <header
-    class="bg-white sticky text-black shadow-md flex items-center rounded-lg p-3"
+    class="bg-white text-black shadow-md flex items-center rounded-lg p-3"
   >
     <div class="w-2/3">
       <SearchBar />

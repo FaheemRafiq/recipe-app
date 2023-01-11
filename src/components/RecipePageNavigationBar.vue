@@ -12,9 +12,11 @@ const route = useRoute();
       <LogoHeading />
       <nav class="pt-14">
         <ul class="space-y-6">
-          <li
+          <RouterLink
+            to="/recipes/overview"
             :class="{
-              'shadow-sm shadow-black': route.path === '/recipes/overview',
+              'shadow-md text-gray-900 scale-105':
+                route.path === '/recipes/overview',
             }"
             class="flex items-center pl-3 transition-all duration-500 cursor-pointer text-gray-600 hover:text-gray-900 hover:scale-105 hover:shadow-md p-1 rounded-full"
           >
@@ -32,10 +34,12 @@ const route = useRoute();
                 d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
               /></svg
             ><button type="button" class="text-xl ml-2">Overview</button>
-          </li>
-          <li
+          </RouterLink>
+          <RouterLink
+            to="/recipes/recipess"
             :class="{
-              'shadow-sm shadow-black bg-gray-50': route.path === '/recipes',
+              'shadow-md text-gray-900 scale-105':
+                route.path === '/recipes/recipess',
             }"
             class="flex items-center pl-3 transition-all duration-500 cursor-pointer text-gray-600 hover:text-gray-800 p-1 hover:scale-105 hover:shadow-md rounded-full"
           >
@@ -52,7 +56,7 @@ const route = useRoute();
                 d="M42.06 20.26H21.94a2 2 0 0 1-2-2V6.44a2 2 0 0 1 2-2h20.12a2 2 0 0 1 2 2v11.82a2 2 0 0 1-2 2zm-18.12-4h16.12V8.44H23.94zm.83 16.1h-3a2 2 0 1 1 0-4h3a2 2 0 0 1 0 4zm17.46-.22H30.45a2 2 0 0 1 0-4h11.78a2 2 0 1 1 0 4zM24.77 43.93h-3a2 2 0 0 1 0-4h3a2 2 0 1 1 0 4zm17.46-.22H30.45a2 2 0 1 1 0-4h11.78a2 2 0 0 1 0 4z"
               /></svg
             ><button type="button" class="text-xl ml-2">Recipes</button>
-          </li>
+          </RouterLink>
           <li
             class="flex items-center pl-3 transition-all duration-500 cursor-pointer text-gray-600 hover:text-gray-800 p-1 rounded-full hover:scale-105 hover:shadow-md"
           >

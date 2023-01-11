@@ -21,6 +21,14 @@ const router = createRouter({
     },
     {
       path: "/recipes/overview",
+      name: "Overview",
+      component: () => import("../views/RecipePage.vue"),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: "/recipes/recipess",
       name: "Recipes",
       component: () => import("../views/RecipePage.vue"),
       meta: {
