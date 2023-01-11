@@ -26,7 +26,7 @@ const heroHeading = "Find delicious recipes and cooking inspiration.";
           Sign Up For Free
         </ButtonComponentVue>
       </RouterLink>
-      <RouterLink to="/recipes">
+      <RouterLink to="/browse">
         <ButtonComponentVue class="border-2 border-yellow-400"
           >Browse Recipes Now</ButtonComponentVue
         >

@@ -19,21 +19,29 @@ const router = createRouter({
       name: "SignIn",
       component: () => import("../views/SignUp.vue"),
     },
+    // Browser Recipes Now
     {
-      path: "/recipes/overview",
-      name: "Overview",
-      component: () => import("../views/RecipePage.vue"),
-      meta: {
-        requiresAuth: true,
-      },
+      path: "/browse",
+      component: () => import("../views/BrowseRecipes.vue"),
     },
+    // After Login or signUp
     {
-      path: "/recipes/recipess",
+      path: "/recipes",
       name: "Recipes",
       component: () => import("../views/RecipePage.vue"),
       meta: {
         requiresAuth: true,
       },
+      children: [
+        {
+          path: "overview",
+          component: () => import("../views/RecipeViews/OverviewRecipes.vue"),
+        },
+        {
+          path: "recipess",
+          component: () => import("../views/RecipeViews/RecipesView.vue"),
+        },
+      ],
     },
   ],
 });

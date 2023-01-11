@@ -2,6 +2,7 @@
 import ButtonComponent from "./ButtonComponent.vue";
 import LogoHeading from "./Small/LogoHeading.vue";
 import { useRoute } from "vue-router";
+import SignOutButton from "./Small/SignOutButton.vue";
 const route = useRoute();
 </script>
 
@@ -95,6 +96,7 @@ const route = useRoute();
             </svg>
             <button type="button" class="text-xl ml-2">Custom</button>
           </li>
+          <li class="mr-auto"><SignOutButton /></li>
         </ul>
       </nav>
       <div>
