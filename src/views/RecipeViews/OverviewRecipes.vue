@@ -1,9 +1,10 @@
 <script setup>
 import { onMounted, ref, watchEffect, defineAsyncComponent } from "vue";
-import RecipePageHeader from "../../components/RecipePageHeader.vue";
 import { useQueryStore } from "../../stores/query";
 import { fetchRecipe } from "../../js/index.js";
+import RecipePageHeader from "../../components/RecipePageHeader.vue";
 import RecipeCardSuspense from "../../components/Small/RecipeCardSuspense.vue";
+
 // Code
 const RecipeCard = defineAsyncComponent(() =>
   import("../../components/Small/RecipeCard.vue")
@@ -12,6 +13,7 @@ const data = ref(null);
 const searchQuery = useQueryStore();
 onMounted(async () => {
   data.value = await fetchRecipe(searchQuery.query);
+  console.log(data.value);
 });
 watchEffect(async () => {
   data.value = await fetchRecipe(searchQuery.query);

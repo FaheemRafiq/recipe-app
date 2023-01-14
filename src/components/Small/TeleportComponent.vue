@@ -1,5 +1,10 @@
 <script setup>
-defineProps(["show"]);
+defineProps({
+  show: {
+    value: Boolean,
+    default: false,
+  },
+});
 </script>
 <template>
   <Teleport to="body">
