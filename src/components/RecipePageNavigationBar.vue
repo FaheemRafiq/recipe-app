@@ -1,17 +1,19 @@
 <script setup>
 import ButtonComponent from "./ButtonComponent.vue";
-import LogoHeading from "./Small/LogoHeading.vue";
 import { useRoute } from "vue-router";
-import SignOutButton from "./Small/SignOutButton.vue";
+// import SignOutButton from "./Small/SignOutButton.vue";
+import UserAvatar from "./UserAvatar.vue";
 const route = useRoute();
 </script>
 
 <template>
-  <div class="bg-white px-8 min-h-full">
+  <div class="bg-white px-8 pb-12">
     <!-- Logo Name -->
-    <div class="pb-5">
-      <LogoHeading />
-      <nav class="pt-14">
+    <div class="pt-8">
+      <div class="">
+        <UserAvatar />
+      </div>
+      <nav class="pt-10">
         <ul class="space-y-6">
           <RouterLink
             to="/recipes/overview"
@@ -96,7 +98,6 @@ const route = useRoute();
             </svg>
             <button type="button" class="text-xl ml-2">Custom</button>
           </li>
-          <li class="mr-auto"><SignOutButton /></li>
         </ul>
       </nav>
       <div>

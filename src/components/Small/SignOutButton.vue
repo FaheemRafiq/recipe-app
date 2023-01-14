@@ -38,14 +38,12 @@ const handleSignOut = async (val) => {
 <template>
   <div>
     <!-- Button -->
-    <div class="ml-auto w-1/2 flex justify-end items-center space-x-4 mr-2">
-      <ButtonComponentVue
-        @click="handleSignOut(shouldLogout)"
-        v-if="isLoggedIn"
-        class="bg-red-600"
-        >Sign Out</ButtonComponentVue
-      >
-    </div>
+    <ButtonComponentVue
+      @click="handleSignOut(shouldLogout)"
+      v-if="isLoggedIn"
+      class="bg-red-600"
+      >Sign Out</ButtonComponentVue
+    >
     <!-- Alert Message for Log Out -->
     <AlertMessage
       :alert-show="alertShow"

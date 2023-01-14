@@ -44,10 +44,7 @@ const { alertShow } = toRefs(props);
             >
               Yes
             </ButtonComponent>
-            <ButtonComponent
-              @click="$emit('cancel')"
-              class="bg-black px-5"
-            >
+            <ButtonComponent @click="$emit('cancel')" class="bg-black px-5">
               No
             </ButtonComponent>
           </div>
