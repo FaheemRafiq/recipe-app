@@ -7,7 +7,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <div class="bg-white px-8 pb-12">
+  <div class="bg-white px-4 md:px-8 pb-12">
     <!-- Logo Name -->
     <div class="pt-8">
       <div class="">

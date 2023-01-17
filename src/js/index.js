@@ -1,14 +1,12 @@
 import { ref } from "vue";
 
 // Function
-export const fetchRecipe = async (recipe) => {
+export const fetchRecipe = async (url) => {
   const data = ref(null);
   try {
-    const response = await fetch(
-      `https://api.edamam.com/api/recipes/v2?type=public&q=${recipe}&app_id=a5383dfa&app_key=1d67f82b2789019aa619f5b6555ca04f`
-    );
+    const response = await fetch(url);
     const json = await response.json();
-    data.value = json.hits;
+    data.value = json;
   } catch (error) {
     console.log(error);
   }

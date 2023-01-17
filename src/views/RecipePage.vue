@@ -4,10 +4,10 @@ import RecipePageNavigationBar from "../components/RecipePageNavigationBar.vue";
 
 <template>
   <div class="min-h-screen bg-gray-200">
-    <div class="fixed">
+    <div class="hidden sm:block fixed">
       <RecipePageNavigationBar />
     </div>
-    <div class="ml-[320px] mr-4">
+    <div class="sm:ml-[320px] sm:mr-4">
       <RouterView />
     </div>
   </div>

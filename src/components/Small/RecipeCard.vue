@@ -29,7 +29,7 @@ function firstCapitalWord(str) {
 <template>
   <div
     @click="teleportShow = true"
-    class="bg-white relative inline-block w-[350px] overflow-hidden h-auto cursor-pointer p-1 rounded-lg shadow-md shadow-black hover:shadow-lg hover:shadow-black transition-all duration-300"
+    class="bg-white relative inline-block w-auto overflow-hidden h-auto cursor-pointer p-1 rounded-lg shadow-md shadow-black hover:shadow-lg hover:shadow-black transition-all duration-300"
   >
     <img
       class="w-full rounded-md hover:scale-100 transition-all duration-300"
@@ -39,14 +39,15 @@ function firstCapitalWord(str) {
     <div
       class="text-center w-full p-0.5 bg-yellow-400 absolute bottom-0 right-0 rounded-t-xl"
     >
-      <h1 class="text-xl font-serif font-bold">
+      <h1 class="text-sm md:text-lg font-serif font-bold">
         {{ recipe.recipe.label }}
       </h1>
-      <h4 class="text-gray-600 text-lg">
+      <h4 class="text-gray-600 text-sm md:text-lg">
         {{ Math.round(recipe.recipe.calories) }}cal
       </h4>
     </div>
   </div>
+
   <!-- Teleport Component -->
   <TeleportComponent :show="teleportShow">
     <div
@@ -56,7 +57,7 @@ function firstCapitalWord(str) {
         <img :src="recipe.recipe.image" class="rounded" />
         <div class="p-1">
           <div class="text-center">
-            <ul class="flex space-x-2">
+            <ul class="flex flex-wrap gap-1">
               <li
                 class="bg-red-600 text-white rounded-xl px-2"
                 v-for="(cuisine, index) in recipe.recipe.cuisineType"
@@ -115,7 +116,7 @@ function firstCapitalWord(str) {
             <p
               class="text-sm bg-yellow-300 px-2 py-0.5 rounded-xl inline-block"
             >
-              {{ Math.floor(ingredient.weight) }}g
+              {{ Math.round(ingredient.weight * 100)/100 }}g
             </p>
           </div>
         </li>
