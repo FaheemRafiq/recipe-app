@@ -1,4 +1,5 @@
 <script setup>
+import { defineProps } from "vue";
 defineProps({
   show: {
     value: Boolean,

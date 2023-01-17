@@ -22,7 +22,7 @@ const profile = ref(false);
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="w-5 h-5 self-end"
+          class="w-5 h-5 self-end ml-0.5"
         >
           <path
             stroke-linecap="round"
