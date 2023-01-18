@@ -59,8 +59,8 @@ function isDisable(from) {
         <RecipeCard :recipe="recipe" />
       </span>
     </div>
-    <div v-else class="grid grid-cols-3 items-center gap-4 mt-4">
-      <span v-for="n in 6" :key="n">
+    <div v-else class="grid grid-cols-4 items-center gap-4 mt-4">
+      <span v-for="n in 8" :key="n">
         <RecipeCardSuspense />
       </span>
     </div>

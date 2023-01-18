@@ -25,11 +25,13 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper";
 
 export default {
+  props: ["cuisine"],
   components: {
     Swiper,
     SwiperSlide,
   },
-  setup() {
+  setup(props) {
+    console.log(props.cuisine);
     return {
       modules: [EffectCards],
     };

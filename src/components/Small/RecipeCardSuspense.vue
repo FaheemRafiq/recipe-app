@@ -1,7 +1,7 @@
 <template>
   <div
     id="card"
-    class="relative inline-block w-[350px] h-[430px] overflow-hidden cursor-pointer p-2 rounded-lg shadow-md shadow-black hover:shadow-lg hover:shadow-black transition-all duration-300"
+    class="relative inline-block w-[250px] h-[330px] overflow-hidden cursor-pointer p-2 rounded-lg shadow-md shadow-black hover:shadow-lg hover:shadow-black transition-all duration-300"
   >
     <div
       class="animate-pulse bg-gradient-to-r from-gray-300 to-gray-500 h-[340px] rounded-lg"
