@@ -1,20 +1,13 @@
 <script setup>
-import {
-  onMounted,
-  ref,
-  watchEffect,
-  defineAsyncComponent,
-  computed,
-} from "vue";
+import { onMounted, ref, watchEffect, computed } from "vue";
 import { useQueryStore } from "../../stores/query";
 import { fetchRecipe } from "../../js/index.js";
 import RecipePageHeader from "../../components/RecipePageHeader.vue";
 import RecipeCardSuspense from "../../components/Small/RecipeCardSuspense.vue";
+import RecipeCard from "../../components/Small/RecipeCard.vue";
 
-// Code
-const RecipeCard = defineAsyncComponent(() =>
-  import("../../components/Small/RecipeCard.vue")
-);
+// code
+const dataNotReceived = ref(true);
 const data = ref(null);
 const previous = ref([]);
 const searchQuery = useQueryStore();
@@ -24,6 +17,10 @@ const apiURL = computed(() => {
 });
 onMounted(async () => {
   data.value = await fetchRecipe(apiURL.value);
+  console.log(data.value);
+  setTimeout(() => {
+    dataNotReceived.value = false;
+  }, 2000);
 });
 watchEffect(async () => {
   data.value = await fetchRecipe(apiURL.value);
@@ -52,16 +49,19 @@ function isDisable(from) {
       <RecipePageHeader />
     </div>
     <div
+      v-if="dataNotReceived"
+      class="grid grid-cols-4 items-center gap-4 mt-4"
+    >
+      <span v-for="n in 8" :key="n">
+        <RecipeCardSuspense />
+      </span>
+    </div>
+    <div
       v-if="data"
       class="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center mx-auto sm:gap-4 mt-4"
     >
       <span v-for="(recipe, index) in data.hits" :key="index">
         <RecipeCard :recipe="recipe" />
-      </span>
-    </div>
-    <div v-else class="grid grid-cols-4 items-center gap-4 mt-4">
-      <span v-for="n in 8" :key="n">
-        <RecipeCardSuspense />
       </span>
     </div>
     <!-- Pagination Links -->

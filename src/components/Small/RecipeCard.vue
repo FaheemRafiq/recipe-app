@@ -1,11 +1,12 @@
 <script setup>
+import LikeButton from "./LikeButton.vue";
 import TeleportComponent from "./TeleportComponent.vue";
 import { ref, watch } from "vue";
 defineProps({
   recipe: Object,
 });
 const teleportShow = ref(false);
-
+const liked = ref(false);
 // Stop scrolling the background cards if teleportShow is TRUE
 watch(teleportShow, (newValue) => {
   if (newValue == true) {
@@ -23,6 +24,11 @@ function firstCapitalWord(str) {
     })
     .join(" ");
   return newStr;
+}
+
+function changeLike() {
+  liked.value = !liked.value;
+  console.log(liked.value);
 }
 </script>
 
@@ -46,6 +52,13 @@ function firstCapitalWord(str) {
         {{ Math.round(recipe.recipe.calories) }}cal
       </h4>
     </div>
+    <button
+      class="absolute top-4 -right-10 rotate-45 px-10 hover:text-white transition-all duration-300"
+      :class="liked ? 'bg-red-600 text-white' : 'bg-yellow-500 text-black'"
+      @click.stop="changeLike"
+    >
+      <LikeButton />
+    </button>
   </div>
 
   <!-- Teleport Component -->
@@ -116,7 +129,7 @@ function firstCapitalWord(str) {
             <p
               class="text-sm bg-yellow-300 px-2 py-0.5 rounded-xl inline-block"
             >
-              {{ Math.round(ingredient.weight * 100)/100 }}g
+              {{ Math.round(ingredient.weight * 100) / 100 }}g
             </p>
           </div>
         </li>
