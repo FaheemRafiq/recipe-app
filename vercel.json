@@ -1,0 +1,15 @@
+{
+  "routes": [
+    { "src": "./src/views/LandingPage.vue", "dest": "/", "status": 200 },
+    {
+      "src": "./src/components/SignInComponent.vue",
+      "dest": "/signin",
+      "status": 200
+    },
+    {
+      "src": "./src/components/SignUpComponent.vue",
+      "dest": "/signup",
+      "status": 200
+    }
+  ]
+}
