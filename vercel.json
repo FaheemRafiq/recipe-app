@@ -1,15 +1,17 @@
 {
   "routes": [
-    { "dest": "./src/views/LandingPage.vue", "src": "/", "status": 200 },
+    { "dest": "./src/views/LandingPage.vue", "src": "/" },
     {
-        "src": "/signin",
-      "dest": "./src/components/SignInComponent.vue",
-      "status": 200
+      "src": "/signin",
+      "dest": "./src/components/SignInComponent.vue"
     },
     {
-        "src": "/signup",
-      "dest": "./src/components/SignUpComponent.vue",
-      "status": 200
+      "src": "/signup",
+      "dest": "./src/components/SignUpComponent.vue"
+    },
+    {
+      "src": "/browse",
+      "dest": "./src/views/BrowseRecipes.vue"
     }
   ]
 }
