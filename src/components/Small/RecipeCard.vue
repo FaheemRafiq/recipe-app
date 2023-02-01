@@ -1,10 +1,12 @@
 <script setup>
 import LikeButton from "./LikeButton.vue";
 import TeleportComponent from "./TeleportComponent.vue";
+import { useRoute } from "vue-router";
 import { ref, watch } from "vue";
 defineProps({
   recipe: Object,
 });
+const route = useRoute();
 const teleportShow = ref(false);
 const liked = ref(false);
 // Stop scrolling the background cards if teleportShow is TRUE
@@ -29,6 +31,14 @@ function firstCapitalWord(str) {
 function changeLike() {
   liked.value = !liked.value;
   console.log(liked.value);
+}
+
+function showLike() {
+  if (route.path === "/browse") {
+    return true;
+  } else {
+    return false;
+  }
 }
 </script>
 
@@ -57,7 +67,7 @@ function changeLike() {
       :class="liked ? 'bg-red-600 text-white' : 'bg-yellow-500 text-black'"
       @click.stop="changeLike"
     >
-      <LikeButton />
+      <LikeButton v-show="!showLike" />
     </button>
   </div>
 
