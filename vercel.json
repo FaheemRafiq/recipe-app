@@ -12,6 +12,10 @@
     {
       "src": "/browse",
       "dest": "./src/views/BrowseRecipes.vue"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "./src/views/LandingPage.vue"
     }
   ]
 }
